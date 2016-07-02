@@ -19,11 +19,11 @@
             <p><a class="dp-link" href="https://www.digitalpulp.com">Digital Pulp</a></p>
         </div>
         <div id="license">
-            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License"
-                                                                                     src="https://i.creativecommons.org/l/by/4.0/88x31.png"/></a><span
-                class="footer-text">This work is licensed under a <a rel="license"
-                                                                     href="http://creativecommons.org/licenses/by/4.0/">Creative
-            Commons Attribution 4.0 International License</a>.</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+            </a>
+            <span class="footer-text">This work is licensed under a <a rel="license"
+                                                                       href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </div>
     </div>
     <div id="cache-api" class="step slide" data-x="-1000" data-y="-3150" data-scale="1">
@@ -33,10 +33,22 @@
     </div>
     <div class="step slide" data-x="-1350" data-y="-3150" data-z="-350" data-rotate-y="-90">
         <h2>Cache API</h2>
+        <h3>How things get stored in cache</h3>
         <div class="slide-text">
-            <ul>
-                <li></li>
-            </ul>
+            <p>Cache services:</p>
+            <dl>
+                <dt><em>Drupal\Core\Cache\MemoryBackend</em></dt>
+                <dd>cache.static</dd>
+                <dt><em>Drupal\Core\Cache\DatabaseBackend</em></dt>
+                <dd>cache.bootstrap</dd>
+                <dd>cache.config</dd>
+                <dd>cache.default</dd>
+                <dd>cache.entity</dd>
+                <dd>cache.menu</dd>
+                <dd>cache.render</dd>
+                <dd>cache.data</dd>
+                <dd>cache.discovery</dd>
+            </dl>
         </div>
     </div>
     <div class="step slide" data-x="-1000" data-y="-3500" data-z="-350" data-rotate-x="90">
@@ -125,7 +137,7 @@
         </div>
     </div>
     <div class="step slide" data-x="-1000" data-y="2200">
-        <h2 ></h2>
+        <h2></h2>
         <div class="slide-text">
             <ul>
                 <li></li>
@@ -142,9 +154,11 @@
         <div class="slide-text">
             <dl>
                 <dt>The Example Project</dt>
-                <dd><a href="https://www.drupal.org/project/examples" target="_blank">https://www.drupal.org/project/examples</a></dd>
+                <dd><a href="https://www.drupal.org/project/examples" target="_blank">https://www.drupal.org/project/examples</a>
+                </dd>
                 <dt>Content Entity Cheatsheet</dt>
-                <dd><a href="http://wizzlern.nl/drupal/drupal-8-entity-cheat-sheet" target="_blank">http://wizzlern.nl/drupal/drupal-8-entity-cheat-sheet</a></dd>
+                <dd><a href="http://wizzlern.nl/drupal/drupal-8-entity-cheat-sheet" target="_blank">http://wizzlern.nl/drupal/drupal-8-entity-cheat-sheet</a>
+                </dd>
                 <dt>Drupal Console</dt>
                 <dd><a href="https://drupalconsole.com" target="_blank">https://drupalconsole.com</a></dd>
             </dl>
@@ -155,7 +169,8 @@
         <div class="slide-text">
             <h3>&OpenCurlyDoubleQuote;An infinite mystery is the Force.&CloseCurlyDoubleQuote;</h3>
             <img src="images/Yoda_Attack_of_the_Clones.png">
-            <h3>&OpenCurlyDoubleQuote;The more we learn, the more we discover how much we do not know.&CloseCurlyDoubleQuote;</h3>
+            <h3>&OpenCurlyDoubleQuote;The more we learn, the more we discover how much we do not
+                know.&CloseCurlyDoubleQuote;</h3>
         </div>
     </div>
 </div>
