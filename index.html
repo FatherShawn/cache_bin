@@ -51,28 +51,61 @@
             </dl>
         </div>
     </div>
-    <div class="step slide" data-x="-1000" data-y="-3500" data-z="-350" data-rotate-x="90">
+    <div class="step slide" id="api-example" data-x="-1000" data-y="-3500" data-z="-350" data-rotate-x="90">
         <h2>Cache API</h2>
         <div class="slide-text">
             <ul>
-                <li></li>
-                <li></li>
+                <li>A cache service in injected</li>
+                <li>A cache ID is created - 1:1 mapping between cid and data item</li>
+                <li>Before the data is obtained or calculated, check cache and use if found</li>
+                <li>Otherwise, generate and cache the data</li>
+                <li>Example:</li>
             </ul>
-
+<pre><code>
+// cacheDefault is injected cache.default service.
+$cid = 'module_name:route.name:' . $entity->id . ':' $entity->field_reference->entity->id;
+if ($cache = $this->cacheDefault->get($cid) {
+  $data = $cache->data;
+}
+else {
+  $data = my_module_complicated_calculation();
+  // optional $expire and $tags parameters omitted for clarity.
+  $this->cacheDefault->set($cid, $data);
+ }
+</code></pre>
         </div>
     </div>
     <div class="step slide" data-x="-650" data-y="-3150" data-z="-350" data-rotate-y="90">
         <h2>Cache API</h2>
         <div class="slide-text">
             <ul>
-                <li></li>
+                <li>If the core cache bins don't meet your needs you can define your own by appropriately defining a service. See <a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/cache/8.1.x#bins">Cache Bins</a> for details or search through <code>core.services.yml</code> for <code>cache.bin</code> to see examples.</li>
+                <li>Both <em>deletion</em> and <em>invalidation</em> methods are available.  Invalidation is better for performance and stability and should be use unless the data must be removed immediately.</li>
             </ul>
 
         </div>
     </div>
+    <div class="step slide" data-x="-1000" data-y="-3150" data-z="-700"  data-rotate-y="180">
+        <h2>Cache API</h2>
+        <h3>Cache Tags</h3>
+        <div class="slide-text">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="step slide" data-x="-1000" data-y="-2800" data-z="-350"  data-rotate-x="90" data-rotate-y="180">
+        <h2>Cache API</h2>
+        <h3>Cache Contexts</h3>
+        <div class="slide-text">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
     <div id="local-dev" class="step slide" data-x="1150" data-y="-1000" data-scale="1">
         <div class="slide-text centered">
-            <h1>Cache and Local Development</h1>
+            <h1>Cache & Local Development</h1>
         </div>
     </div>
     <div id="fieldable" class="step slide" data-x="800" data-y="-1000" data-z="-350" data-rotate-y="-90">
@@ -84,7 +117,7 @@
         </div>
     </div>
     <div class="step slide" data-x="1150" data-y="-1350" data-z="-350" data-rotate-x="90">
-        <h2>Cache and Local Development</h2>
+        <h2>Cache & Local Development</h2>
         <div class="slide-text">
             <ul>
                 <li></li>
