@@ -154,7 +154,7 @@ a:hover {
 
 /* Headers
  */
-h1, h2 {
+h1, h2, h3 {
   text-align: center;
 }
 
@@ -208,7 +208,7 @@ div#license {
 }
 
 @import "slides/cover";
-@import "slides/datacontainer";
+@import "slides/apiexample";
 @import "slides/fieldable";
 @import "slides/questions";
 @import "slides/smarter";
