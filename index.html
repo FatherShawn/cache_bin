@@ -79,28 +79,120 @@ else {
         <h2>Cache API</h2>
         <div class="slide-text">
             <ul>
-                <li>If the core cache bins don't meet your needs you can define your own by appropriately defining a service. See <a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/cache/8.1.x#bins">Cache Bins</a> for details or search through <code>core.services.yml</code> for <code>cache.bin</code> to see examples.</li>
-                <li>Both <em>deletion</em> and <em>invalidation</em> methods are available.  Invalidation is better for performance and stability and should be use unless the data must be removed immediately.</li>
+                <li>If the core cache bins don't meet your needs you can define your own by appropriately defining a
+                    service. See <a href="https://api.drupal.org/api/drupal/core%21core.api.php/group/cache/8.1.x#bins">Cache
+                        Bins</a> for details or search through <code>core.services.yml</code> for <code>cache.bin</code>
+                    to see examples.
+                </li>
+                <li>Both <em>deletion</em> and <em>invalidation</em> methods are available. Invalidation is better for
+                    performance and stability and should be use unless the data must be removed immediately.
+                </li>
             </ul>
 
         </div>
     </div>
-    <div class="step slide" data-x="-1000" data-y="-3150" data-z="-700"  data-rotate-y="180">
+    <div class="step slide" data-x="-1000" data-y="-3150" data-z="-700" data-rotate-y="180">
         <h2>Cache API</h2>
         <h3>Cache Tags</h3>
         <div class="slide-text">
             <ul>
-                <li></li>
+                <li>Used to describe dependencies on <strong>data.</strong></li>
+                <li>Optional argument when caching data. All data with the same tag can be invalidated as a group.</li>
+                <li>Convention is [prefix]:[suffix]</li>
+                <ul>
+                    <li>node:37</li>
+                    <li>user:3</li>
+                </ul>
+                <li>All core entities have built-in support for cache tags.</li>
+                <li>You can define your own.</li>
             </ul>
         </div>
     </div>
-    <div class="step slide" data-x="-1000" data-y="-2800" data-z="-350"  data-rotate-x="90" data-rotate-y="180">
+    <div class="step slide" id="cache-contexts" data-x="-1000" data-y="-2800" data-z="-350" data-rotate-x="90" data-rotate-y="180">
         <h2>Cache API</h2>
         <h3>Cache Contexts</h3>
         <div class="slide-text">
-            <ul>
-                <li></li>
+            <ul id="overview">
+                <li>Used to describe dependencies on <strong>context</strong>, technically the <em>request</em></li>
+                <li>Can define your own contexts.</li>
+                <li>Core contexts:</li>
             </ul>
+            <div id="contexts">
+                <ul>
+                    <li>cookies
+                        <ul>
+                            <li>:name</li>
+                        </ul>
+                    </li>
+                    <li>headers
+                        <ul>
+                            <li>:name</li>
+                        </ul>
+                    </li>
+                    <li>ip</li>
+                    <li>languages
+                        <ul>
+                            <li>:type</li>
+                        </ul>
+                    </li>
+                    <li>request_format</li>
+                    <li>route
+                        <ul>
+                            <li>.book_navigation</li>
+                            <li>.menu_active_trails
+                                <ul>
+                                    <li>:menu_name</li>
+                                </ul>
+                            </li>
+                            <li>.name</li>
+                        </ul>
+                    </li>
+                    <li>session
+                        <ul>
+                            <li>.exists</li>
+                        </ul>
+                    </li>
+                    <li>theme</li>
+                    <li>timezone</li>
+                    <li>url
+                        <ul>
+                            <li>.host</li>
+                            <li>.query_args
+                                <ul>
+                                    <li>:key</li>
+                                    <li>.pagers
+                                        <ul>
+                                            <li>:pager_id</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>.path
+                                <ul>
+                                    <li>.parent</li>
+                                </ul>
+                            </li>
+                            .site
+                        </ul>
+                    </li>
+                    <li>user
+                        <ul>
+                            <li>.is_super_user</li>
+                            <li>.node_grants
+                                <ul>
+                                    <li>:operation</li>
+                                </ul>
+                            </li>
+                            <li>.permissions</li>
+                            <li>.roles
+                                <ul>
+                                    <li>:role</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div id="local-dev" class="step slide" data-x="1150" data-y="-1000" data-scale="1">
@@ -108,25 +200,28 @@ else {
             <h1>Cache & Local Development</h1>
         </div>
     </div>
-    <div id="fieldable" class="step slide" data-x="800" data-y="-1000" data-z="-350" data-rotate-y="-90">
-        <h2>Cache and Local Development</h2>
+    <div class="step slide" id="cache-off" data-x="800" data-y="-1000" data-z="-350" data-rotate-y="-90">
+        <h2>Cache &<br>Local Development</h2>
         <div class="slide-text">
             <ul>
-                <li></li>
+                <li><code>drupal site:mode dev </code> will get you most of the way.</li>
+                <li>Can manually cache clear - <strong>important</strong> for seeing how your site interacts with cache</li>
+                <li>Cache backend is pluggable - plug it in to the Null Cache service when needed.
+                <ul><li>Use a settings.local.php:</li></ul>
+<pre id="cache-settings">
+    <code>
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+    </code>
+</pre>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="step slide" data-x="1150" data-y="-1350" data-z="-350" data-rotate-x="90">
-        <h2>Cache & Local Development</h2>
-        <div class="slide-text">
-            <ul>
-                <li></li>
-            </ul>
-        </div>
-    </div>
-    <div id="smarter" class="step slide" data-x="-1000" data-y="1150" data-scale="1">
+    <div id="render-cache" class="step slide" data-x="-1000" data-y="1150" data-scale="1">
         <div class="slide-text centered">
-            <h1></h1>
+            <h1>Render Cache</h1>
         </div>
     </div>
     <div id="secret-sauce" class="step slide" data-x="-1000" data-y="2200" data-z="-1" data-rotate-y="180">

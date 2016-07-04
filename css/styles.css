@@ -177,21 +177,28 @@ div#api-example pre {
 div#api-example code {
   font-size: 0.8em; }
 
-#fieldable div.data-diagram {
-  float: right; }
-  #fieldable div.data-diagram img {
-    margin-right: 143.5px;
-    margin-left: 143.5px; }
-
 #questions h2 {
   text-align: center; }
 
 #questions div.slide-text {
   text-align: center; }
 
-div.slide h2.entity-detail-title {
-  font-size: 1.5625em; }
+div#cache-contexts ul#overview {
+  margin-bottom: 0; }
 
-div.slide code.basefield-info,
-div.slide code.access-info {
+div#cache-contexts div#contexts {
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
+  font-size: 0.64em; }
+  div#cache-contexts div#contexts ul {
+    list-style: none;
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    margin: 0; }
+
+pre#cache-settings {
   font-size: 0.8em; }
