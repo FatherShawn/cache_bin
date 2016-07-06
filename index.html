@@ -225,8 +225,13 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
         </div>
     </div>
    <div class="step slide" data-x="-1350" data-y="1150" data-z="-350" data-rotate-y="-90">
-        <h2></h2>
+        <h2>Render Arrays and Cache</h2>
         <div class="slide-text">
+            <ul>
+                <li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AaddCacheableDependency/8.1.x">Renderer::addCacheableDependency</a> for the win!</li>
+                <li>Set your context directly.</li>
+                <li>Still have time based cache available.</li>
+            </ul>
 <pre><code>
 $render_array = (
     '#cache => array(
@@ -241,19 +246,23 @@ $render_array = (
             </ul>
         </div>
     </div>
-    <div class="step slide" data-x="-1000" data-y="800" data-z="-350" data-rotate-x="90">
-        <h2></h2>
-        <div class="slide-text">
-            <ul>
-                <li></li>
-            </ul>
+    <div id="prevent-cache" class="step slide" data-x="-1000" data-y="800" data-z="-350" data-rotate-x="90">
+        <div class="slide-text centered">
+            <h1>Exempt a route from Cache</h1>
         </div>
     </div>
     <div class="step slide" data-x="-650" data-y="1150" data-z="-350" data-rotate-y="90">
         <h2 class=""></h2>
         <div class="slide-text">
             <ul>
-                <li></li>
+                <li>Create a route subscriber
+                <ul>
+                    <li>Requires a class and a service.</li>
+                    <li><a href="https://hechoendrupal.gitbooks.io/drupal-console/content/en/commands/generate-event-subscriber.html"><code>drupal generate:event:subscriber</code></a></li>
+                </ul>
+                </li>
+                <li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21EventSubscriber%21FinishResponseSubscriber.php/function/FinishResponseSubscriber%3A%3AsetCacheControlNoCache/8.1.x">setCacheControlNoCache</a></li>
+                <li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21EventSubscriber%21FinishResponseSubscriber.php/function/FinishResponseSubscriber%3A%3AsetExpiresNoCache/8.1.x">setExpiresNoCache</a></li>
             </ul>
         </div>
     </div>
