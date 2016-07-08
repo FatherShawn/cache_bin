@@ -203,3 +203,6 @@ div#cache-contexts div#contexts {
 
 pre#cache-settings {
   font-size: 0.8em; }
+
+dl#resource-links dd {
+  font-size: 0.8em; }
