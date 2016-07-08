@@ -152,6 +152,16 @@ a:hover {
   text-decoration: underline;
 }
 
+pre {
+  margin-top: 0;
+  margin-left: $text_down_one;
+  background: #000;
+  color: #f8f8f8;
+}
+code {
+  font-size: $text_down_one;
+}
+
 /* Headers
  */
 h1, h2, h3 {
@@ -208,7 +218,6 @@ div#license {
 }
 
 @import "slides/cover";
-@import "slides/apiexample";
 @import "slides/questions";
 @import "slides/contexts";
 @import "slides/local-dev";

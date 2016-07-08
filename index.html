@@ -62,17 +62,17 @@
                 <li>Example:</li>
             </ul>
 <pre><code>
-// cacheDefault is injected cache.default service.
-$cid = 'module_name:route.name:' . $entity->id . ':' $entity->field_reference->entity->id;
-if ($cache = $this->cacheDefault->get($cid) {
-  $data = $cache->data;
+<span style="color:#aeaeae;font-style:italic">// cacheDefault is injected cache.default service.</span>
+<span style="color:#3e87e3">$cid</span> <span style="color:#e28964">=</span> <span style="color:#65b042">'module_name:route.name:'</span> <span style="color:#e28964">.</span> <span style="color:#3e87e3">$entity</span><span style="color:#e28964">-></span>id <span style="color:#e28964">.</span> <span style="color:#65b042">':'</span> <span style="color:#3e87e3">$entity</span><span style="color:#e28964">-></span>field_reference<span style="color:#e28964">-></span>entity<span style="color:#e28964">-></span>id;
+<span style="color:#e28964">if</span> (<span style="color:#3e87e3">$cache</span> <span style="color:#e28964">=</span> <span style="color:#3e87e3">$this</span><span style="color:#e28964">-></span>cacheDefault<span style="color:#e28964">-></span>get(<span style="color:#3e87e3">$cid</span>) {
+  <span style="color:#3e87e3">$data</span> <span style="color:#e28964">=</span> <span style="color:#3e87e3">$cache</span><span style="color:#e28964">-></span>data;
 }
-else {
-  $data = my_module_complicated_calculation();
-  // optional $expire and $tags parameters omitted for clarity.
-  $this->cacheDefault->set($cid, $data);
- }
-</code></pre>
+<span style="color:#e28964">else</span> {
+  <span style="color:#3e87e3">$data</span> <span style="color:#e28964">=</span> my_module_complicated_calculation();
+  <span style="color:#aeaeae;font-style:italic">// optional $expire and $tags parameters omitted for clarity.</span>
+  <span style="color:#3e87e3">$this</span><span style="color:#e28964">-></span>cacheDefault<span style="color:#e28964">-></span>set(<span style="color:#3e87e3">$cid</span>, <span style="color:#3e87e3">$data</span>);
+ }</code>
+</pre>
         </div>
     </div>
     <div class="step slide" data-x="-650" data-y="-3150" data-z="-350" data-rotate-y="90">
@@ -210,9 +210,9 @@ else {
                 <ul><li>Use a settings.local.php:</li></ul>
 <pre id="cache-settings">
     <code>
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+<span style="color:#3e87e3">$settings</span>[<span style="color:#65b042">'container_yamls'</span>][] <span style="color:#e28964">=</span> <span style="color:#3387cc">DRUPAL_ROOT</span> <span style="color:#e28964">.</span> <span style="color:#65b042">'/sites/development.services.yml'</span>;
+<span style="color:#3e87e3">$settings</span>[<span style="color:#65b042">'cache'</span>][<span style="color:#65b042">'bins'</span>][<span style="color:#65b042">'render'</span>] <span style="color:#e28964">=</span> <span style="color:#65b042">'cache.backend.null'</span>;
+<span style="color:#3e87e3">$settings</span>[<span style="color:#65b042">'cache'</span>][<span style="color:#65b042">'bins'</span>][<span style="color:#65b042">'dynamic_page_cache'</span>] <span style="color:#e28964">=</span> <span style="color:#65b042">'cache.backend.null'</span>;
     </code>
 </pre>
                 </li>
@@ -233,13 +233,13 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
                 <li>Still have time based cache available.</li>
             </ul>
 <pre><code>
-$render_array = (
-    '#cache => array(
-        'max-age' => 0,
-        'tags' => array(),
-        'contexts' => array(),
+<span style="color:#3e87e3">$render_array</span> <span style="color:#e28964">=</span> (
+    <span style="color:#65b042">'#cache => array(
+        '</span><span style="color:#3387cc">max</span><span style="color:#e28964">-</span><span style="color:#3387cc">age</span><span style="color:#65b042">' => 0,
+        '</span><span style="color:#3387cc">tags</span><span style="color:#65b042">' => array(),
+        '</span><span style="color:#3387cc">contexts</span><span style="color:#65b042">' => array(),
     );
-);
+);</span>
 </code></pre>
             <ul>
                 <li></li>
