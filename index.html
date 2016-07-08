@@ -109,11 +109,12 @@
             <ul>
                 <li>Used to describe dependencies on <strong>data.</strong></li>
                 <li>Optional argument when caching data. All data with the same tag can be invalidated as a group.</li>
-                <li>Convention is [prefix]:[suffix]</li>
-                <ul>
-                    <li>node:37</li>
-                    <li>user:3</li>
-                </ul>
+                <li>Convention is [prefix]:[suffix]
+                    <ul>
+                        <li>node:37</li>
+                        <li>user:3</li>
+                    </ul>
+                </li>
                 <li>All core entities have built-in support for cache tags.</li>
                 <li>You can define your own.</li>
             </ul>
@@ -216,9 +217,9 @@
         <div class="slide-text">
             <ul>
                 <li><code>drupal site:mode dev </code> will get you most of the way.</li>
+                <li>In the generated <code>services.yml</code> set <code>http.response.debug_cacheability_headers</code> to <code>true</code></li>
                 <li>Can manually cache clear - <strong>important</strong> for seeing how your site interacts with cache</li>
-                <li>Cache backend is pluggable - plug it in to the Null Cache service when needed.
-                <ul><li>Use a settings.local.php:</li></ul>
+                <li>Cache backend is pluggable - plug it in to the Null Cache service when needed. Use a settings.local.php:
 <pre id="cache-settings">
     <code>
 <span style="color:#3e87e3">$settings</span>[<span style="color:#65b042">'container_yamls'</span>][] <span style="color:#e28964">=</span> <span style="color:#3387cc">DRUPAL_ROOT</span> <span style="color:#e28964">.</span> <span style="color:#65b042">'/sites/development.services.yml'</span>;
@@ -299,6 +300,10 @@
                 <dd>
                     <a href="https://www.drupal.org/developing/api/8/render/arrays/cacheability">https://www.drupal.org/developing/api/8/<br>render/arrays/cacheability</a>
                 </dd>
+                <dt>Insure Cache Bubbling in Custom Template</dt>
+                <dd>
+                    <a href="https://www.drupal.org/node/2660002#comment-11110223">https://www.drupal.org/node/2660002</a>
+                </dd>
                 <dt>Varnish</dt>
                 <dd>
                     <a href="http://www.jeffgeerling.com/blog/2016/use-drupal-8-cache-tags-varnish-and-purge">http://www.jeffgeerling.com/blog/2016/<br>use-drupal-8-cache-tags-varnish-and-purge</a>
@@ -314,7 +319,7 @@
         <h2>Open Q & A</h2>
         <div class="slide-text">
             <h3>&OpenCurlyDoubleQuote;An infinite mystery is the Force.&CloseCurlyDoubleQuote;</h3>
-            <img src="images/Yoda_Attack_of_the_Clones.png">
+            <img id="yoda" src="images/Yoda_Attack_of_the_Clones.png">
             <h3>&OpenCurlyDoubleQuote;The more we learn, the more we discover how much we do not
                 know.&CloseCurlyDoubleQuote;</h3>
         </div>
