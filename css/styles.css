@@ -178,11 +178,14 @@ div#license {
 .slide a.dp-link {
   color: #00aef0; }
 
-#questions h2 {
+div#questions h2 {
   text-align: center; }
 
-#questions div.slide-text {
+div#questions div.slide-text {
   text-align: center; }
+
+div#questions img#yoda {
+  max-height: 50%; }
 
 div#cache-contexts ul#overview {
   margin-bottom: 0; }
